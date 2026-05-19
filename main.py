@@ -1,3 +1,4 @@
+import csv
 import random
 import time
 
@@ -39,13 +40,32 @@ def display_sensor_data(speed, engine_temperature, fuel_level, warnings):
         print("Status: All systems normal")
 
 
+def initialize_log_file():
+    with open("sensor_logs.csv", mode="w", newline="", encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["speed", "engine_temperature", "fuel_level", "warnings"])
+
+
+def save_sensor_log(speed, engine_temperature, fuel_level, warnings):
+    if warnings:
+        warning_text = ";".join(warnings)
+    else:
+        warning_text = "None"
+
+    with open("sensor_logs.csv", mode="a", newline="", encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([speed, engine_temperature, fuel_level, warning_text])
+
+
 def main():
     print("Vehicle Sensor Simulation Started")
+    initialize_log_file()
 
     for _ in range(5):
         speed, engine_temperature, fuel_level = generate_sensor_data()
         warnings = check_warnings(speed, engine_temperature, fuel_level)
         display_sensor_data(speed, engine_temperature, fuel_level, warnings)
+        save_sensor_log(speed, engine_temperature, fuel_level, warnings)
         time.sleep(1)
 
     print("\nSimulation finished.")
