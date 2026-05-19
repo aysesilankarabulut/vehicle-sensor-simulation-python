@@ -1,6 +1,6 @@
 speed,engine_temperature,fuel_level,warnings
-77,115,24,Engine temperature warning
-64,71,4,Low fuel warning
-80,75,96,None
-177,95,69,High speed warning
-113,121,17,Engine temperature warning
+71,62,35,None
+147,108,100,High speed warning;Engine temperature warning
+138,85,4,High speed warning;Low fuel warning
+100,126,50,Engine temperature warning
+179,111,37,High speed warning;Engine temperature warning

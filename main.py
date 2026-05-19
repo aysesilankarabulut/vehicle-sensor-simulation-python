@@ -1,6 +1,9 @@
 import csv
+import os
 import random
 import time
+
+import matplotlib.pyplot as plt
 
 
 def generate_sensor_data():
@@ -57,6 +60,51 @@ def save_sensor_log(speed, engine_temperature, fuel_level, warnings):
         writer.writerow([speed, engine_temperature, fuel_level, warning_text])
 
 
+def generate_graphs():
+    speeds = []
+    temperatures = []
+    fuel_levels = []
+
+    with open("sensor_logs.csv", mode="r", newline="", encoding="utf-8") as csvfile:
+        reader = csv.reader(csvfile)
+        next(reader, None)
+        for row in reader:
+            if len(row) >= 3:
+                speeds.append(int(row[0]))
+                temperatures.append(int(row[1]))
+                fuel_levels.append(int(row[2]))
+
+    os.makedirs("outputs/graphs", exist_ok=True)
+    reading_numbers = list(range(1, len(speeds) + 1))
+
+    plt.figure()
+    plt.plot(reading_numbers, speeds, marker='o')
+    plt.title("Vehicle Speed Readings")
+    plt.xlabel("Reading Number")
+    plt.ylabel("Speed (km/h)")
+    plt.grid(True)
+    plt.savefig("outputs/graphs/speed_graph.png")
+    plt.close()
+
+    plt.figure()
+    plt.plot(reading_numbers, temperatures, marker='o', color='orange')
+    plt.title("Engine Temperature Readings")
+    plt.xlabel("Reading Number")
+    plt.ylabel("Engine Temperature (°C)")
+    plt.grid(True)
+    plt.savefig("outputs/graphs/temperature_graph.png")
+    plt.close()
+
+    plt.figure()
+    plt.plot(reading_numbers, fuel_levels, marker='o', color='green')
+    plt.title("Fuel Level Readings")
+    plt.xlabel("Reading Number")
+    plt.ylabel("Fuel Level (%)")
+    plt.grid(True)
+    plt.savefig("outputs/graphs/fuel_level_graph.png")
+    plt.close()
+
+
 def main():
     print("Vehicle Sensor Simulation Started")
     initialize_log_file()
@@ -69,6 +117,7 @@ def main():
         time.sleep(1)
 
     print("\nSimulation finished.")
+    generate_graphs()
 
 
 if __name__ == "__main__":

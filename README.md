@@ -2,7 +2,7 @@
 
 ## Project Purpose
 
-This beginner-friendly Python project simulates vehicle sensor data and helps learners understand how to work with random values, warning checks, and data logging. It also saves each simulated reading to a CSV file so the sensor history can be reviewed later.
+This beginner-friendly Python project simulates vehicle sensor data and helps learners understand how to work with random values, warning checks, data logging, and simple data visualization. It also saves each simulated reading to a CSV file so the sensor history can be reviewed later and visualized as graphs.
 
 ## Features
 
@@ -10,11 +10,20 @@ This beginner-friendly Python project simulates vehicle sensor data and helps le
 - Check for warnings on high speed, high engine temperature, and low fuel level
 - Display sensor data in the console
 - Save sensor data logs to a CSV file
+- Generate graphs from sensor data
 
 ## Technologies Used
 
 - Python
 - CSV
+- Matplotlib
+
+## Outputs
+
+- `sensor_logs.csv`
+- `outputs/graphs/speed_graph.png`
+- `outputs/graphs/temperature_graph.png`
+- `outputs/graphs/fuel_level_graph.png`
 
 ## How to Run
 
