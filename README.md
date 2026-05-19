@@ -1,37 +1,95 @@
-# Vehicle Sensor Simulation Python
+# Vehicle Sensor Simulation
 
-## Project Purpose
-
-This beginner-friendly Python project simulates vehicle sensor data and helps learners understand how to work with random values, warning checks, data logging, and simple data visualization. It also saves each simulated reading to a CSV file so the sensor history can be reviewed later and visualized as graphs.
+Vehicle Sensor Simulation is a beginner-friendly Python project that simulates vehicle sensor data.  
+The project generates speed, engine temperature, and fuel level values, detects warning conditions, saves sensor logs to a CSV file, and creates graphs from the collected data.
 
 ## Features
 
-- Simulate vehicle sensor values for speed, engine temperature, and fuel level
-- Check for warnings on high speed, high engine temperature, and low fuel level
-- Display sensor data in the console
+- Simulate vehicle speed data
+- Simulate engine temperature data
+- Simulate fuel level data
+- Detect warning conditions
 - Save sensor data logs to a CSV file
 - Generate graphs from sensor data
+- Create separate graphs for speed, engine temperature, and fuel level
+- Beginner-friendly Python structure
 
 ## Technologies Used
 
 - Python
 - CSV
 - Matplotlib
-
-## Outputs
-
-- `sensor_logs.csv`
-- `outputs/graphs/speed_graph.png`
-- `outputs/graphs/temperature_graph.png`
-- `outputs/graphs/fuel_level_graph.png`
+- Git
+- GitHub
 
 ## How to Run
 
-1. Open a terminal in the project folder.
-2. Run `python main.py`.
-3. The program will simulate data 5 times and write the results to `sensor_logs.csv`.
+First, make sure Python is installed on your computer.
 
-## Notes
+Install the required library:
 
-- This project is designed to be simple and easy to read.
-- The CSV file is created automatically each time the simulation starts.
+```bash
+pip install matplotlib
+```
+
+Run the project:
+
+```bash
+python main.py
+```
+
+## Outputs
+
+When the program runs, it creates:
+
+```text
+sensor_logs.csv
+```
+
+and graph files inside:
+
+```text
+outputs/graphs/
+```
+
+Generated graph examples:
+
+```text
+outputs/graphs/speed_graph.png
+outputs/graphs/temperature_graph.png
+outputs/graphs/fuel_level_graph.png
+```
+
+## Warning Conditions
+
+The project generates warning messages when:
+
+- Speed is greater than 120 km/h
+- Engine temperature is greater than 100 °C
+- Fuel level is lower than 15%
+
+## Project Purpose
+
+The purpose of this project is to practice Python programming with a simple automotive-related simulation.  
+It focuses on:
+
+- Random sensor data generation
+- Conditional warning logic
+- CSV file handling
+- Data logging
+- Data visualization with Matplotlib
+- Basic automotive sensor simulation
+
+## Future Improvements
+
+- Add real-time graph visualization
+- Add battery level simulation
+- Add dashboard interface
+- Add more sensor types
+- Improve warning system logic
+- Add unit tests
+
+## Author
+
+Created by **Silan Karabulut**  
+Computer Engineering Student
